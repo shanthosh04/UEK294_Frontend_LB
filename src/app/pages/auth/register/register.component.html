@@ -2,39 +2,43 @@
 <form [formGroup]="formGroup">
   <mat-form-field>
     <label>Vorname</label>
-    <input type="text" formControlName="FirstName">
+    <input type="text" formControlName="firstName">
   </mat-form-field>
   <mat-form-field>
     <label>Nachname</label>
-    <input type="text" formControlName="LastName">
+    <input type="text" formControlName="lastName">
   </mat-form-field>
   <mat-form-field>
     <label>Adresse</label>
-    <input type="text" formControlName="Adress">
+    <input type="text" formControlName="adress">
   </mat-form-field>
   <mat-form-field>
     <label>Postleitzahl</label>
-    <input type="text" formControlName="PLZ">
+    <input type="text" formControlName="zip">
   </mat-form-field>
   <mat-form-field>
     <label>Stadt</label>
-    <input type="text" formControlName="City">
+    <input type="text" formControlName="city">
   </mat-form-field>
   <mat-form-field>
     <label>Land</label>
-    <input type="text" formControlName="Country">
+    <input type="text" formControlName="country">
   </mat-form-field>
   <mat-form-field>
     <label>Mobiltelefon</label>
-    <input type="text" formControlName="MobilePhone">
+    <input type="text" formControlName="mobilePhone">
+  </mat-form-field>
+  <mat-form-field>
+    <label>Phone</label>
+    <input type="text" formControlName="phone">
   </mat-form-field>
   <mat-form-field>
     <label>EMail</label>
-    <input type="text" formControlName="EMail">
+    <input type="text" formControlName="email">
   </mat-form-field>
   <mat-form-field>
     <label>Passwort</label>
-    <input type="password" formControlName="Password">
+    <input type="password" formControlName="password">
   </mat-form-field>
   <button type="submit" formControlName="SaveButton">Speichern</button>
 </form>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatFormFieldModule} from "@angular/material/form-field";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 
 @Component({
   selector: 'pm-login',
@@ -11,8 +11,11 @@ import {ReactiveFormsModule} from "@angular/forms";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  formGroup: any;
-
-  speichern() {
+  formGroup!: FormGroup;
+  constructor(private fb: FormBuilder) {
+    this.formGroup = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]]
+    });
   }
 }

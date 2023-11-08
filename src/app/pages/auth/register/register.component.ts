@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
+import {RegisterDto, UserControllerService} from "../../../openapi-client";
 
 @Component({
   selector: 'pm-register',
@@ -15,7 +16,8 @@ import {MatInputModule} from "@angular/material/input";
 export class RegisterComponent {
   formGroup!: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private userService: UserControllerService) {
     this.formGroup = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(255)]],
       lastName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(255)]],
@@ -28,5 +30,15 @@ export class RegisterComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$')]]
     })
+  }
+
+  submit() {
+    console.log(this.formGroup);
+    console.log(this.formGroup.errors);
+    if(this.formGroup.valid) {
+      this.userService.register(this.formGroup.value as RegisterDto).subscribe(val=> {
+        alert('erfolgreich registriert');
+      })
+    }
   }
 }

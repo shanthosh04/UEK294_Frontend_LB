@@ -1,5 +1,5 @@
 <div class="form-box">
-<form [formGroup]="formGroup">
+<form [formGroup]="formGroup" (ngSubmit)="submit()">
   <mat-form-field>
     <label>Vorname</label>
     <input matInput type="text" formControlName="firstName">

@@ -2,13 +2,12 @@
   <form [formGroup]="formGroup">
     <mat-form-field>
       <label>EMail</label>
-      <input type="text" formControlName="EMail">
+      <input matInput type="text" formControlName="email">
     </mat-form-field>
     <mat-form-field>
       <label>Passwort</label>
-      <input type="text" formControlName="Password">
+      <input matInput type="text" formControlName="password">
     </mat-form-field>
-    <button type="button" (click)="speichern()">Speichern</button>
   </form>
 
 </div>

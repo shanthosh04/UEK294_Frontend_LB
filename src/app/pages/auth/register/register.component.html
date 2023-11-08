@@ -1,1 +1,26 @@
-<p>register works!</p>
+<form [formGroup]="formGroup">
+  <mat-form-field>
+    <label>Vorname</label>
+    <input type="text" formControlName="FirstName">
+  </mat-form-field>
+  <mat-form-field>
+    <label>Nachname</label>
+    <input type="text" formControlName="LastName">
+  </mat-form-field>
+  <mat-form-field>
+    <label>Adresse</label>
+    <input type="text" formControlName="Adress">
+  </mat-form-field>
+  <mat-form-field>
+    <label>Postleitzahl</label>
+    <input type="text" formControlName="PLZ">
+  </mat-form-field>
+  <mat-form-field>
+    <label>EMail</label>
+    <input type="text" formControlName="EMail">
+  </mat-form-field>
+  <mat-form-field>
+    <label>Passwort</label>
+    <input type="text" formControlName="Password">
+  </mat-form-field>
+</form>

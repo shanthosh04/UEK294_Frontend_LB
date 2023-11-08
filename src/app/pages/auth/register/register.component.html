@@ -1,3 +1,4 @@
+<div class="form-box">
 <form [formGroup]="formGroup">
   <mat-form-field>
     <label>Vorname</label>
@@ -16,11 +17,25 @@
     <input type="text" formControlName="PLZ">
   </mat-form-field>
   <mat-form-field>
+    <label>Stadt</label>
+    <input type="text" formControlName="City">
+  </mat-form-field>
+  <mat-form-field>
+    <label>Land</label>
+    <input type="text" formControlName="Country">
+  </mat-form-field>
+  <mat-form-field>
+    <label>Mobiltelefon</label>
+    <input type="text" formControlName="MobilePhone">
+  </mat-form-field>
+  <mat-form-field>
     <label>EMail</label>
     <input type="text" formControlName="EMail">
   </mat-form-field>
   <mat-form-field>
     <label>Passwort</label>
-    <input type="text" formControlName="Password">
+    <input type="password" formControlName="Password">
   </mat-form-field>
+  <button type="submit" formControlName="SaveButton">Speichern</button>
 </form>
+</div>

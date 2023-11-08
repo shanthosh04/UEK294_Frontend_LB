@@ -11,5 +11,8 @@ import {ReactiveFormsModule} from "@angular/forms";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  formGroup: any;
 
+  speichern() {
+  }
 }

@@ -8,13 +8,18 @@ const routes: Routes = [
   },
 
   {
+    path: "auth/register",
+    loadComponent: ()=> import(`./pages/auth/register/register.component`).then(v => v.RegisterComponent)
+  },
+
+  {
     path: "categories",
-    loadChildren: () => import("./pages/category/category.module").then(v => v.CategoryModule)
+    loadChildren: () => import('./pages/category/category.module').then(v => v.CategoryModule)
   },
 
   {
     path: "products",
-    loadChildren: () => import("./pages/products/products.module").then(v => v.ProductsModule)
+    loadChildren: () => import('./pages/products/products.module').then(v => v.ProductsModule)
   }
 
 

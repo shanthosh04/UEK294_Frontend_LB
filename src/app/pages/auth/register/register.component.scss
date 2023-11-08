@@ -1,0 +1,32 @@
+.container {
+  display: flex; /* Enables flexbox layout mode */
+  flex-direction: column; /* Stacks the children (form fields and button) vertically */
+  justify-content: flex-end; /* Aligns children at the bottom */
+  height: 100%; /* Sets the height of the container to the full available height */
+  border: 1px solid #ccc; /* Optional border for visualization */
+  padding: 10px; /* Optional padding inside the container */
+}
+
+.form-style {
+  width: 100%; /* Sets the form to take full width of the container */
+}
+
+.mat-form-field {
+  margin-bottom: 10px; /* Adds space between form fields */
+  width: 100%; /* Optional: Makes each form field take the full width of the container */
+}
+
+button {
+  /* Style for your save button */
+  padding: 10px 20px; /* Button padding */
+  background-color: #007bff; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: 10px; /* Space above the button */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker background on hover */
+}

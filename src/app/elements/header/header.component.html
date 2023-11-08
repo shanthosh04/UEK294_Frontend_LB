@@ -1,20 +1,20 @@
 <mat-toolbar color="primary">
   <span>Gemstone Galleria</span>
   <span class="example-spacer"></span>
-  <button mat-button [matMenuTriggerFor]="menu">Categorys</button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>create</button>
-    <button mat-menu-item>list</button>
+  <button mat-button [matMenuTriggerFor]="menucategory">Categorys</button>
+  <mat-menu #menucategory="matMenu">
+    <button mat-menu-item routerLink="/category/detail">detail</button>
+    <button mat-menu-item routerLink="/category/list">list</button>
   </mat-menu>
 
-  <button mat-button [matMenuTriggerFor]="menu">Products</button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>create</button>
-    <button mat-menu-item>list</button>
+  <button mat-button [matMenuTriggerFor]="menuproducts">Products</button>
+  <mat-menu #menuproducts="matMenu">
+    <button mat-menu-item routerLink="/products/detail">detail</button>
+    <button mat-menu-item routerLink="/products/list">list</button>
   </mat-menu>
-  <button mat-button>Sign in</button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>login</button>
-    <button mat-menu-item>register</button>
+  <button mat-button [matMenuTriggerFor]="menulogin">Sign in</button>
+  <mat-menu #menulogin="matMenu">
+    <button mat-menu-item routerLink="/auth/login">login</button>
+    <button mat-menu-item routerLink="/auth/register">register</button>
   </mat-menu>
 </mat-toolbar>

@@ -1,31 +1,18 @@
-.container {
+.form-box {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  height: 100%;
-  border: 1px solid #ccc;
+  align-items: center;
+  width: 100%;
+}
+
+.form-box mat-form-field,
+.form-box button {
+  max-width: 400px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.form-box button {
   padding: 10px;
-}
-
-.form-style {
-  width: 100%;
-}
-
-.mat-form-field {
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-button:hover {
-  background-color: #0056b3;
+  box-sizing: border-box;
 }

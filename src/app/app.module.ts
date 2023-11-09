@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 import {FooterComponent} from "./elements/footer/footer.component";
 import {HeaderComponent} from "./elements/header/header.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {ApiModule, Configuration} from "./openapi-client";
+import {AuthorizationInterceptor} from "./interceptors/authorization.interceptor";
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,15 +21,22 @@ import {ApiModule, Configuration} from "./openapi-client";
     BrowserAnimationsModule,
     HttpClientModule,
     ApiModule.forRoot(() => {
-      return new Configuration ({
-       basePath: 'https://product-manager.cyrotech.ch'
+      return new Configuration({
+        basePath: 'https://product-manager.cyrotech.ch'
       })
     }),
-    FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: AuthorizationInterceptor
+    }
+  ],
   bootstrap: [AppComponent]
 })
+export class AppModule {
 
-export class AppModule { }
+}

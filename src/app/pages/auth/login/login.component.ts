@@ -26,7 +26,9 @@ export class LoginComponent {
     console.log(this.formGroup);
     console.log(this.formGroup.errors);
     if(this.formGroup.valid) {
-      this.userService.login(this.formGroup.value as RegisterDto).subscribe(val=> {
+      this.userService.login(this.formGroup.value as RegisterDto).subscribe(token=> {
+        console.log(token)
+        localStorage.setItem('ACCESS_TOKEN', token.token as string);
         alert('erfolgreich eingeloggt');
       })
     }

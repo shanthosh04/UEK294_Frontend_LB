@@ -5,6 +5,9 @@ import { CategoryRoutingModule } from './category-routing.module';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryModifyComponent } from './category-modify/category-modify.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
@@ -15,7 +18,10 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
   ],
   imports: [
     CommonModule,
-    CategoryRoutingModule
+    CategoryRoutingModule,
+    MatSlideToggleModule,
+    ReactiveFormsModule,
+    MatInputModule
   ]
 })
 export class CategoryModule { }

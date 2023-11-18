@@ -1,16 +1,23 @@
 <form [formGroup]="formGroup" (ngSubmit)="submit()" class="category-form">
+  <!-- Anzeige des Titels basierend auf dem 'isEdit'-Wert -->
   <h2 class="text-xl">{{ isEdit ? 'Kategorie bearbeiten' : 'Kategorie erstellen' }}</h2>
 
+  <!-- Eingabefeld für den Namen der Kategorie mit Material Design-Styling -->
   <mat-form-field class="full-width-input">
     <mat-label>Name</mat-label>
     <input formControlName="name" matInput placeholder="Geben Sie den Kategoriennamen ein">
+    <!-- Fehlermeldung, wenn das Namensfeld ungültig ist -->
     <mat-error *ngIf="formGroup.controls['name'].invalid">Name ist erforderlich.</mat-error>
   </mat-form-field>
 
+  <!-- Schalter für die Aktivierung der Kategorie mit Material Design-Styling -->
   <mat-slide-toggle formControlName="active">Aktiv</mat-slide-toggle>
 
+  <!-- Schaltflächen für die Formularaktionen -->
   <div class="form-actions">
+    <!-- Zurück zur Kategorieliste navigieren -->
     <button mat-button mat-raised-button color="accent" [routerLink]="['/categories/list']">Zurück</button>
+    <!-- Schaltfläche zum Absenden des Formulars -->
     <button mat-button mat-raised-button color="primary" type="submit">{{ isEdit ? 'Aktualisieren' : 'Erstellen' }}</button>
   </div>
 </form>

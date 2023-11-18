@@ -11,7 +11,7 @@ import { CategoryControllerService } from '../../../openapi-client';
 export class CategoryModifyComponent implements OnInit {
   formGroup: FormGroup;
   isEdit: boolean = false;
-  categoryId: number | null = null;
+  categoryId!: number ;
 
   constructor(
     private categoryControllerService: CategoryControllerService,
@@ -40,11 +40,11 @@ export class CategoryModifyComponent implements OnInit {
       const categoryData = this.formGroup.value;
       if (this.isEdit && this.categoryId) {
         this.categoryControllerService.updateCategoryById(this.categoryId, categoryData).subscribe(() => {
-          this.router.navigateByUrl('/categories/list');
+          this.router.navigate(['/categories/list']);
         });
       } else {
         this.categoryControllerService.createCategory(categoryData).subscribe(() => {
-          this.router.navigateByUrl('/categories/list');
+          this.router.navigate(['/categories/list']);
         });
       }
     } else {

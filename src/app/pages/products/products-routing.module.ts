@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {ProductsListComponent} from "../products/products-list/products-list.component";
 import {ProductsModifyComponent} from "../products/products-modify/products-modify.component";
 import {ProductsDetailComponent} from "../products/products-detail/products-detail.component";
+import {authGuard} from "../../guards/auth.guard";
 
 const routes: Routes = [
   {
@@ -11,11 +12,14 @@ const routes: Routes = [
   },
   {
     path: 'create',
-    component: ProductsModifyComponent
+    component: ProductsModifyComponent,
+    canActivate: [authGuard],
+
   },
   {
     path: 'edit/:id',
-    component: ProductsModifyComponent
+    component: ProductsModifyComponent,
+    canActivate: [authGuard],
   },
   {
     path: ":id",

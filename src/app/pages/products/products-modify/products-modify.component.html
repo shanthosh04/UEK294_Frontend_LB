@@ -1,1 +1,38 @@
-<p>products-modify works!</p>
+<!-- Ein Angular Reactive Forms-Formular, das in dieser Komponente verwendet wird. -->
+<form [formGroup]="formGroup" (ngSubmit)="submit()">
+  <!-- Anzeige des Titels basierend auf dem 'isEdit'-Wert -->
+  <h2>{{ isEdit ? 'Produkt bearbeiten' : 'Produkt erstellen' }}</h2>
+
+  <!-- Eingabefeld für den Namen des Produkts -->
+  <div>
+    <label>Name</label>
+    <input formControlName="name" placeholder="Produktname">
+    <!-- Fehlermeldung, wenn das Namensfeld ungültig ist -->
+    <p *ngIf="formGroup.controls['name'].invalid">Name ist erforderlich.</p>
+  </div>
+
+  <!-- Eingabefeld für die Beschreibung des Produkts -->
+  <div>
+    <label>Beschreibung</label>
+    <textarea formControlName="description" placeholder="Beschreibung"></textarea>
+  </div>
+
+  <!-- Eingabefeld für den Preis des Produkts -->
+  <div>
+    <label>Preis</label>
+    <input type="number" formControlName="price">
+    <!-- Fehlermeldung, wenn das Preisfeld ungültig ist -->
+    <p *ngIf="formGroup.controls['price'].invalid">Preis ist erforderlich.</p>
+  </div>
+
+  <!-- Checkbox für die Aktivierung des Produkts -->
+  <div>
+    <label>Aktiv</label>
+    <input type="checkbox" formControlName="active">
+  </div>
+
+  <!-- Schaltfläche zum Absenden des Formulars -->
+  <button type="submit">{{ isEdit ? 'Aktualisieren' : 'Erstellen' }}</button>
+  <!-- Schaltfläche zum Zurückkehren zur Produktliste -->
+  <button type="button" (click)="navigateToProductList()">Zurück</button>
+</form>

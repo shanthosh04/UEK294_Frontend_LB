@@ -1,21 +1,28 @@
 <mat-toolbar color="primary">
+  <!-- Titel der Anwendung -->
   <span>Gemstone Galleria</span>
-  <span class="example-spacer"></span>
+  <span class="example-spacer"></span> <!-- Platzhalter zur Ausrichtung rechts -->
 
+  <!-- Kategorie-Menü -->
   <button mat-button [matMenuTriggerFor]="menucategory">Categories</button>
   <mat-menu #menucategory="matMenu">
+    <!-- Menüelemente mit Router-Links -->
     <button mat-menu-item routerLink="/categories/create">Create</button>
     <button mat-menu-item routerLink="/categories/list">List</button>
   </mat-menu>
 
+  <!-- Produkte-Menü -->
   <button mat-button [matMenuTriggerFor]="menuproducts">Products</button>
   <mat-menu #menuproducts="matMenu">
+    <!-- Menüelemente mit Router-Links -->
     <button mat-menu-item routerLink="/products/detail">Detail</button>
     <button mat-menu-item routerLink="/products/list">List</button>
   </mat-menu>
 
+  <!-- Anmelden-Menü -->
   <button mat-button [matMenuTriggerFor]="menulogin">Sign in</button>
   <mat-menu #menulogin="matMenu">
+    <!-- Menüelemente mit Router-Links -->
     <button mat-menu-item routerLink="/auth/login">Login</button>
     <button mat-menu-item routerLink="/auth/register">Register</button>
   </mat-menu>

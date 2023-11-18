@@ -1,8 +1,8 @@
-// category-modify.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CategoryControllerService } from '../../../openapi-client';
+
 @Component({
   selector: 'app-category-modify',
   templateUrl: './category-modify.component.html',
@@ -11,7 +11,7 @@ import { CategoryControllerService } from '../../../openapi-client';
 export class CategoryModifyComponent implements OnInit {
   formGroup: FormGroup;
   isEdit: boolean = false;
-  categoryId!: number ;
+  categoryId!: number;
 
   constructor(
     private categoryControllerService: CategoryControllerService,

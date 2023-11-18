@@ -1,31 +1,54 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
-import { CategoryControllerService } from "../../../openapi-client";
-import { FormGroup } from '@angular/forms';
-
+// category-modify.component.ts
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CategoryControllerService } from '../../../openapi-client';
 @Component({
-  selector: 'pm-category-modify',
+  selector: 'app-category-modify',
   templateUrl: './category-modify.component.html',
   styleUrls: ['./category-modify.component.scss']
 })
-
-export class CategoryModifyComponent {
+export class CategoryModifyComponent implements OnInit {
+  formGroup: FormGroup;
   isEdit: boolean = false;
-  formGroup: FormGroup = new FormGroup({});
-  categoryId: string | number | undefined;
+  categoryId: number | null = null;
 
   constructor(
-    private readonly categoryControllerService: CategoryControllerService,
+    private categoryControllerService: CategoryControllerService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
-    if (this.activatedRoute.snapshot.params['id']) {
-      this.isEdit = true;
+    this.formGroup = new FormGroup({
+      name: new FormControl('', Validators.required),
+      active: new FormControl(false)
+    });
+  }
 
-      this.categoryControllerService.getCategoryById(this.activatedRoute.snapshot.params['id']).subscribe(category => {
+  ngOnInit(): void {
+    const id = this.activatedRoute.snapshot.params['id'];
+    if (id) {
+      this.isEdit = true;
+      this.categoryId = id;
+      this.categoryControllerService.getCategoryById(id).subscribe(category => {
         this.formGroup.patchValue(category);
-        this.categoryId = category.id;
       });
+    }
+  }
+
+  submit(): void {
+    if (this.formGroup.valid) {
+      const categoryData = this.formGroup.value;
+      if (this.isEdit && this.categoryId) {
+        this.categoryControllerService.updateCategoryById(this.categoryId, categoryData).subscribe(() => {
+          this.router.navigateByUrl('/categories/list');
+        });
+      } else {
+        this.categoryControllerService.createCategory(categoryData).subscribe(() => {
+          this.router.navigateByUrl('/categories/list');
+        });
+      }
+    } else {
+      console.error('Form is not valid');
     }
   }
 }

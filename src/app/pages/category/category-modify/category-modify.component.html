@@ -1,1 +1,16 @@
-<p>category-modify works!</p>
+<form [formGroup]="formGroup" (ngSubmit)="submit()" class="category-form">
+  <h2 class="text-xl">Kategorie {{ isEdit ? 'bearbeiten' : 'erstellen' }}</h2>
+
+  <mat-form-field class="full-width-input">
+    <mat-label>Name</mat-label>
+    <input formControlName="name" matInput placeholder="Geben Sie den Kategoriennamen ein">
+    <mat-error *ngIf="formGroup.controls['name'].invalid">Name ist erforderlich.</mat-error>
+  </mat-form-field>
+
+  <mat-slide-toggle formControlName="active">Aktiv</mat-slide-toggle>
+
+  <div class="form-actions">
+    <button mat-button mat-raised-button color="accent" [routerLink]="['/categories/list']">Zurück</button>
+    <button mat-button mat-raised-button color="primary" type="submit">{{ isEdit ? 'Aktualisieren' : 'Erstellen' }}</button>
+  </div>
+</form>
